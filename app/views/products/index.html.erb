@@ -1,10 +1,12 @@
 <h1>GoVintage</h1>
+<p>Compra e Venda de móveis e decoração com estilo vintage e previamente adorados por seus donos. </p>
 
 <% @products.each do |product| %>
   <ul>
 
     <li><%= link_to product.name,  product_path(product) %></li>
     <li><%= product.price %></li>
+    <li>Vendida por <%= product.user.name %></p></li>
   </ul>
 <% end %>
 
