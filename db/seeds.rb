@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.destroy_all
+
+puts 'Creating products...'
+sofavintage = Product.new(user_id: 1, name: "Sofa Vintage", description: "Novinho em folha ", category: "Sofas", price: 200.00)
+sofavintage.save!
+
+poltronavermelha = Product.new(user_id: 2, name: "Poltrona Vermelha", description: "Com marcas e manchas", category: "Poltronas", price: 300.00)
+poltronavermelha.save!
+puts 'Finished!'
