@@ -1,10 +1,10 @@
 
 
 <%= simple_form_for(@product) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit %>
+  <%= f.input :name, :label => "Nome" %>
+  <%= f.input :category, :label => "Categoria" %>
+  <%= f.input :description, :label => "Descrição" %>
+  <%= f.input :price, :label => "Preço" %>
+  <%= f.button :submit, "Criar Anúncio" %>
 <% end %>
 
