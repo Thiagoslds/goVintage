@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    authorize @product
     # associar o produto ao user
     @product = Product.new(product_params)
     # associar o produto ao user
