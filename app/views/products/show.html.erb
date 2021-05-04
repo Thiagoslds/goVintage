@@ -1,4 +1,6 @@
 <h1><%= @product.name %></h1>
+<p>Vendedor: <%= link_to @product.user.name,  user_path(@product) %></p>
+
 
 <ul>
 <li><%= @product.category %></li>
