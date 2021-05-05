@@ -7,12 +7,14 @@
 
   <% @products.each do |product| %>
     <div class="card">
-    <ul>
-
-      <li><%= link_to product.name,  product_path(product) %></li>
-      <li><%= product.price %></li>
-      <li>Vendida por <%= product.user.name %></p></li>
-    </ul>
+    <%# linha para adicionar imagens quando objetos do cloudinary %>
+    <%# <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fill %>
+    <%= image_tag "phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg" %>
+    <div class="card-text">
+        <p><%= link_to product.name,  product_path(product) %></p>
+        <p>R$ <%= product.price %></p>
+        <p>Vendida por <%= product.user.name %></p>
+      </div>
     </div>
   <% end %>
 </div>
