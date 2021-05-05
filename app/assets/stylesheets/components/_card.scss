@@ -1,13 +1,14 @@
 .card {
     display: flex;
     width: 300px;
+    margin: 10px;
+
 }
 
 .card-text {
     justify-content: center;
 }
 
-.card-text p {
-    justify-content: center;
-
+.card a {
+    text-decoration: none;
 }
