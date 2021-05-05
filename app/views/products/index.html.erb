@@ -4,6 +4,7 @@
 
 <% @products.each do |product| %>
   <ul>
+    <li><%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %></li>
     <li><%= link_to product.name,  product_path(product) %></li>
     <li>R$ <%= product.price %></li>
     <li>Vendida por <%= product.user.name %></li>
@@ -12,15 +13,5 @@
   </div>
 <% end %>
 
-<!-- <div class="container">
-  <div class="row row-cols-4">
-    <div class="col">
-      <% @products.each do |product| %>
-        <p><%= link_to product.name,  product_path(product) %></p>
-        <p>R$ <%= product.price %></p>
-        <p>Vendida por <%= product.user.name %></p>
-      <% end %>
-    </div>
-  </div> -->
 
 
