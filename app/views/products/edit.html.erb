@@ -1,3 +1,5 @@
 <h1>Edit View Products</h1>
 
-<%= render 'form', product: @product %>
+  <% if @product.user == current_user %>
+    <%= render 'form', product: @product %>
+  <% end %>

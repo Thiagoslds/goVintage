@@ -1,12 +1,14 @@
 <h1><%= @product.name %></h1>
 
 <ul>
-<li><%= @product.category %></li>
-<li><%= @product.description %></li>
-<li><%= @product.price %></li>
+  <li><%= @product.category %></li>
+  <li><%= @product.description %></li>
+  <li><%= @product.price %></li>
 </ul>
 
 <div class="btn-style">
     <button><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-    <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
+    <% if @product.user != current_user %>
+      <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
+    <% end %>
 </div>
