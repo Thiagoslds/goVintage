@@ -1,6 +1,16 @@
 <h1>GoVintage</h1>
 <p>Compra e Venda de móveis e decoração com estilo vintage e previamente adorados por seus donos. </p>
 
+<!-- [...] -->
+<%= form_tag products_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "ex: Cadeira"
+  %>
+  <%= submit_tag "Busca", class: "btn btn-primary" %>
+<% end %>
+<!-- the list of products -->
 
 <% @products.each do |product| %>
   <ul>
