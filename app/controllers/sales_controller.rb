@@ -1,12 +1,15 @@
 class SalesController < ApplicationController
 
   before_action :set_sale, only: [:show]
+ #before_action :authorize_sale
 
   def new
     @sale = Sale.new
+    authorize @sale
   end
 
   def show
+    authorize @sale
   end
 
   def create
@@ -15,6 +18,7 @@ class SalesController < ApplicationController
     @product = Product.find(params[:product_id])
     @sale.user = current_user
     @sale.product = @product
+    authorize @sale
     if @sale.save
       redirect_to sale_path(@sale)
     end
@@ -22,6 +26,10 @@ class SalesController < ApplicationController
   end
 
   private
+
+  # def authorize_sale
+  #   authorize @sale
+  # end
 
   def set_sale
     @sale = Sale.find(params[:id])
