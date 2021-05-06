@@ -1,6 +1,7 @@
 <h1><%= @product.name %></h1>
 
 <ul>
+<%= cl_image_tag @product.image.key, height: 300, width: 400, crop: :fill %>
 <li><%= @product.category %></li>
 <li><%= @product.description %></li>
 <li><%= @product.price %></li>
