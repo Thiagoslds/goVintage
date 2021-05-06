@@ -4,18 +4,24 @@
   <h1>GoVintage</h1>
   <p>Compra e Venda de móveis e decoração com estilo vintage e previamente adorados por seus donos. </p>
 </div>
-
+<div class="grid-container">
   <% @products.each do |product| %>
-    <div class="card">
-    <%# linha para adicionar imagens quando objetos do cloudinary %>
-    <%# <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fill %>
-    <%= image_tag "phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg" %>
-    <div class="card-text">
-        <p><%= link_to product.name,  product_path(product) %></p>
-        <p>R$ <%= product.price %></p>
-        <p>Vendida por <%= product.user.name %></p>
+    <div class="grid-item">
+      <div class="card">
+      <%# linha para adicionar imagens quando objetos do cloudinary %>
+      <%# <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fill %>
+      <div class="card-image">
+        <%= image_tag "phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg", width: 300 %>
+      </div>
+      <div class="card-text">
+          <p><%= link_to product.name,  product_path(product) %></p>
+          <p>R$ <%= product.price %>0</p>
+          <%# <p>Vendida por <%= product.user.name %>
+          
+        </div>
       </div>
     </div>
   <% end %>
+  </div>
 </div>
 
