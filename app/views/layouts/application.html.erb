@@ -12,12 +12,13 @@
   </head>
 
   <body>
+  <div id="page-container">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <p style="color:red;"><%= render 'shared/footer' %></p>
-
+    <%= render 'shared/footer' %>
+  </div>
   </body>
 </html>
