@@ -5,16 +5,18 @@ class ProductsController < ApplicationController
       sql_query = "name ILIKE :query OR category ILIKE :query OR description ILIKE :query"
       @products = Product.where(sql_query, query: "%#{params[:query]}%")
     else
-      @products = Product.all
+      @products = policy_scope(Product).order(created_at: :desc)
     end
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def show
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def create
@@ -22,6 +24,8 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     # associar o produto ao user
     @product.user = current_user
+    authorize @product
+
     if @product.save
       redirect_to product_path(@product)
     else
@@ -31,15 +35,18 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def update
     @product = Product.find(params[:id])
     @product.update(product_params)
+    authorize @product
     redirect_to product_path(@product)
   end
 
   def destroy
+    authorize @product
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
