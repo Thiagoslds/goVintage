@@ -8,3 +8,28 @@
 <div class="btn-style">
     <button><%= link_to "Criar Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
 </div>
+<br>
+<p>Meus produtos anunciados</p>
+
+<!-- falta definir os produtos desse usuario especificamente -->
+<div class="grid-container">
+  <% @user.products.each do |product| %>
+    <div class="grid-item">
+      <div class="card">
+      <div class="card-image">
+        <%= cl_image_tag product.image.key, height: 200, width: 300, crop: :fill %>
+<!--         <%= link_to product.name,  product_path(product) %> -->
+      </div>
+      <div class="card-text">
+          <p><%= link_to product.name,  product_path(product) %></p>
+          <p>R$ <%= product.price %>0</p>
+          <%# <p>Vendida por <%= product.user.name %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+
