@@ -4,8 +4,9 @@ body{
   margin: 30px 50px;
 }
 .info-product{
-  background-color: #E0E0E0;
+  background-color: #E6D5B8;
   text-align: center;
+  border-radius: 20px;
   h1{
     font-weight: 600;
   }
@@ -20,4 +21,7 @@ body{
 }
 .img-product{
   text-align: center;
+}
+.btn-style{
+  padding: 40px;
 }

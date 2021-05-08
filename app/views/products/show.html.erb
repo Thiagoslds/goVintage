@@ -9,12 +9,15 @@
       <p id="description"><%= @product.description %></p>
       <p id="price">R$ <%= @product.price %></p>
     </div>
+    <div class="btn-style">
+      <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
+        <% if @product.user != current_user %>
+          <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
+        <% else %>
+          <button><%= link_to "Editar",  edit_product_path(@product), method: :get, class: 'btn-book' %></button>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="btn-style">
-    <button><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-    <% if @product.user != current_user %>
-      <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
-    <% end %>
-</div>
+
