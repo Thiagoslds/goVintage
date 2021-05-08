@@ -27,8 +27,11 @@
   </div>
 </div>
 
-<div class="product-related">
-  <h2>Produtos relacionados</h2>
+<center>
+
+  <div class="prod-user">
+
+  <h3>Produtos relacionados</h3>
   <% @products.each do |product| %>
     <% if product.category == @product.category && product.id != @product.id %>
     <div class="grid-item">
@@ -44,6 +47,12 @@
     </div>
     <% end %>
   <% end %>
-</div>
+
+  </div>
+
+</center>
+<br>
+
+
 
 
