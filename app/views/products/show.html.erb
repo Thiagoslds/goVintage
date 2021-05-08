@@ -9,7 +9,7 @@
     <h1><%= @product.name %></h1>
     <div class="details-product d-flex flex-column">
       <p id="description"><%= @product.description %></p>
-      <p id="price">R$ <%= @product.price %></p>
+      <p id="price">R$ <%= @product.price %>0</p>
     </div>
     <div class="btn-style">
       <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
