@@ -19,6 +19,7 @@
 </div>
   <div class="grid-container">
     <% @products.each do |product| %>
+      <% unless product.sold %>
       <div class="grid-item">
         <div class="card">
         <div class="card-image">
@@ -32,6 +33,7 @@
           </div>
 
       </div>
+      <% end %>
     <% end %>
     </div>
   </div>
