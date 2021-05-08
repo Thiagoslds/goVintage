@@ -20,6 +20,7 @@ class SalesController < ApplicationController
     @sale.product = @product
     authorize @sale
     if @sale.save
+      @product.update(sold: true)
       redirect_to sale_path(@sale)
     end
 

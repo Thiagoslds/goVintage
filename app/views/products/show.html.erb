@@ -3,6 +3,8 @@
     <%= cl_image_tag @product.image.key, height: 400, width: 600, crop: :fill %>
   </div>
 
+
+
   <div class="info-product col-12 col-lg-6">
     <h1><%= @product.name %></h1>
     <div class="details-product d-flex flex-column">
@@ -11,7 +13,7 @@
     </div>
     <div class="btn-style">
       <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-        <% if @product.user != current_user %>
+        <% if @product.user != current_user || @product.sold == false%>
           <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
         <% else %>
           <button><%= link_to "Editar",  edit_product_path(@product), method: :get, class: 'btn-book' %></button>
