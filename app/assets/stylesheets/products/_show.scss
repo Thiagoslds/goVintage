@@ -1,0 +1,27 @@
+body{
+}
+.product-all{
+  margin: 30px 50px;
+}
+.info-product{
+  background-color: #E6D5B8;
+  text-align: center;
+  border-radius: 20px;
+  h1{
+    font-weight: 600;
+  }
+  #description{
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: 100;
+  }
+  #price{
+    font-size: 80px;
+  }
+}
+.img-product{
+  text-align: center;
+}
+.btn-style{
+  padding: 40px;
+}
