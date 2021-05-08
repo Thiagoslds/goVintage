@@ -1,6 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<br>
 
+<div class="container">
+  <div class="banner">
+    <p>Compra e Venda de móveis e decoração com estilo vintage e previamente adorados por seus donos. </p>
+  </div>
 
-<% @products.each do |product| %>
-<%= product.name %>
+  <div class="search">
+    <%= form_tag products_path, method: :get, class:"form-inline" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "ex: Cadeira"
+    %>
+    <%= submit_tag "Busca", class: "btn btn-primary" %>
+    <% end %>
+<!-- the list of products -->
+  </div>
+
+  <div class="grid-container">
+    <% @products.each do |product| %>
+      <% unless product.sold %>
+      <div class="grid-item">
+        <div class="card">
+          <div class="card-image">
+            <%= cl_image_tag product.image.key, height: 180, width: 245, crop: :fill %>
+          </div>
+          <div class="card-text">
+            <p><%= link_to product.name,  product_path(product) %></p>
+            <p>R$ <%= product.price %>0</p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

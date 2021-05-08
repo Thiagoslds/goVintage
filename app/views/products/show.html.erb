@@ -1,6 +1,6 @@
 <div class="product-all row">
   <div class="img-product col-12 col-lg-6">
-    <%= cl_image_tag @product.image.key, height: 400, width: 600, crop: :fill %>
+    <p><%= cl_image_tag @product.image.key, crop: :fit, height: 400, width: 600  %></p>
   </div>
 
 
@@ -9,20 +9,42 @@
     <h1><%= @product.name %></h1>
     <div class="details-product d-flex flex-column">
       <p id="description"><%= @product.description %></p>
-      <p id="price">R$ <%= @product.price %>0</p>
+      <p id="price">R$ <%= @product.price %></p>
     </div>
+
     <div class="btn-style">
-      <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-        <% if !@product.sold %>
-        
-          <% if @product.user != current_user  %>
-            <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
-          <% else %>
-            <button><%= link_to "Editar",  edit_product_path(@product), method: :get, class: 'btn-book' %></button>
-          <% end %>
+
+
+      <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product) %></button>
+      <% if !@product.sold %>
+        <% if @product.user != current_user%>
+          <button class="button"><%= link_to "Comprar",  product_sales_path(@product), method: :post %></button>
+        <% else %>
+          <button class="button"><%= link_to "Editar",  edit_product_path(@product), method: :get %></button>
         <% end %>
+       <% end %>
+
     </div>
   </div>
+</div>
+
+<div class="product-related">
+  <h2>Produtos relacionados</h2>
+  <% @products.each do |product| %>
+    <% if product.category == @product.category && product.id != @product.id %>
+    <div class="grid-item">
+        <div class="card">
+          <div class="card-image">
+            <%= cl_image_tag product.image.key, height: 200, width: 300, crop: :fill %>
+          </div>
+          <div class="card-text">
+            <p><%= link_to product.name,  product_path(product) %></p>
+            <p>R$ <%= product.price %></p>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  <% end %>
 </div>
 
 

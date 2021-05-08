@@ -1,23 +1,43 @@
-<h1><%= @user.name %></h1>
-
-<ul>
-<li><%= @user.email %></li>
-<li><%= @user.address %></li>
-</ul>
-
-<div class="btn-style">
-    <button><%= link_to "Criar Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-</div>
 <br>
-<p>Meus produtos anunciados</p>
+<center>
 
-<!-- falta definir os produtos desse usuario especificamente -->
+  <div class="container">
+
+  <div class="user-profile">
+    <br>
+    <h1><%= @user.name %></h1>
+
+    <ul>
+    <li><%= @user.email %></li>
+    <li><%= @user.address %></li>
+    </ul>
+
+  <div>
+    <%= link_to "Criar Anúncio",  new_product_path(@product), class: "btn btn-primary" %>
+  </div>
+
+  </div>
+</div>
+
+</center>
+
+
+<br>
+
+
+
+<center>
+
+  <div class="prod-user">
+
+    <p>Meus produtos anunciados</p>
+      <!-- falta definir os produtos desse usuario especificamente -->
 <div class="grid-container">
   <% @user.products.each do |product| %>
     <div class="grid-item">
       <div class="card">
       <div class="card-image">
-        <%= cl_image_tag product.image.key, height: 200, width: 300, crop: :fill %>
+        <%= cl_image_tag product.image.key, height: 200, width: 250, crop: :fill %>
 <!--         <%= link_to product.name,  product_path(product) %> -->
       </div>
       <div class="card-text">
@@ -31,3 +51,13 @@
   <% end %>
   </div>
 </div>
+  </div>
+
+
+
+</center>
+
+
+
+
+
