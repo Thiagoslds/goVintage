@@ -1,12 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to products_path, class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/dzuoumhdx/image/upload/v1619885284/GoVintage_logo_qug2kh.png" %>
-    <% end %> <%= render 'shared/searchform' %>
+    <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -16,7 +15,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/dzuoumhdx/image/upload/v1620483277/avatar-default_etftcb.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Perfil do Usuário", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Criar Anúncio", new_product_path, class: "dropdown-item" %>

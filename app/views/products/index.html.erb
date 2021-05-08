@@ -1,41 +1,39 @@
 
 <div class="container">
-
   <div class="banner">
-    <h1>GoVintage</h1>
     <p>Compra e Venda de móveis e decoração com estilo vintage e previamente adorados por seus donos. </p>
   </div>
-<!-- [...] -->
-<div class="search">
-  <%= form_tag products_path, method: :get do %>
+
+  <div class="search">
+    <%= form_tag products_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "ex: Cadeira"
     %>
     <%= submit_tag "Busca", class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
 <!-- the list of products -->
-</div>
+  </div>
+
   <div class="grid-container">
     <% @products.each do |product| %>
       <% unless product.sold %>
       <div class="grid-item">
         <div class="card">
-        <div class="card-image">
-          <%= cl_image_tag product.image.key, height: 200, width: 300, crop: :fill %>
-        </div>
-        <div class="card-text">
+          <div class="card-image">
+            <%= cl_image_tag product.image.key, height: 200, width: 300, crop: :fill %>
+          </div>
+          <div class="card-text">
             <p><%= link_to product.name,  product_path(product) %></p>
             <p>R$ <%= product.price %>0</p>
             <%# <p>Vendida por <%= product.user.name %>
-            
           </div>
 
       </div>
       <% end %>
     <% end %>
-    </div>
+  </div>
   </div>
 </div>
 
