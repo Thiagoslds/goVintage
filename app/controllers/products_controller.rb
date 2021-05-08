@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @products = policy_scope(Product).order(created_at: :desc)
     @product = Product.find(params[:id])
     authorize @product
   end
