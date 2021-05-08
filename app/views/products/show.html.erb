@@ -9,7 +9,7 @@
     <h1><%= @product.name %></h1>
     <div class="details-product d-flex flex-column">
       <p id="description"><%= @product.description %></p>
-      <p id="price">R$ <%= @product.price %></p>
+      <p id="price">R$ <%= @product.price %>0</p>
     </div>
 
     <div class="btn-style">
@@ -21,6 +21,8 @@
           <button class="button"><%= link_to "Comprar",  product_sales_path(@product), method: :post %></button>
         <% else %>
           <button class="button"><%= link_to "Editar",  edit_product_path(@product), method: :get %></button>
+          <button class="button"><%= link_to "Excluir",  product_path(@product), method: :delete, data: { confirm: "Tem certeza que quer excluir?" }%></button>
+
         <% end %>
        <% end %>
 
@@ -39,7 +41,7 @@
           </div>
           <div class="card-text">
             <p><%= link_to product.name,  product_path(product) %></p>
-            <p>R$ <%= product.price %></p>
+            <p>R$ <%= product.price %>0</p>
           </div>
         </div>
     </div>
