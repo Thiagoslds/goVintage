@@ -1,11 +1,16 @@
-<h1><%= @product.name %></h1>
+<div class="product-all row">
+  <div class="img-product col-12 col-lg-6">
+    <%= cl_image_tag @product.image.key, height: 400, width: 600, crop: :fill %>
+  </div>
 
-<ul>
-  <%= cl_image_tag @product.image.key, height: 300, width: 400, crop: :fill %>
-  <li><%= @product.category %></li>
-  <li><%= @product.description %></li>
-  <li><%= @product.price %></li>
-</ul>
+  <div class="info-product col-12 col-lg-6">
+    <h1><%= @product.name %></h1>
+    <div class="details-product d-flex flex-column">
+      <p id="description"><%= @product.description %></p>
+      <p id="price">R$ <%= @product.price %></p>
+    </div>
+  </div>
+</div>
 
 <div class="btn-style">
     <button><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
