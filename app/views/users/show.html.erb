@@ -1,14 +1,23 @@
-<h1><%= @user.name %></h1>
+<div class="container">
 
-<ul>
-<li><%= @user.email %></li>
-<li><%= @user.address %></li>
-</ul>
+  <div class="user-profile">
+    <br>
+    <h1><%= @user.name %></h1>
 
-<div class="btn-style">
-    <button><%= link_to "Criar Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
+    <ul>
+    <li><%= @user.email %></li>
+    <li><%= @user.address %></li>
+    </ul>
+
+  <div>
+    <%= link_to "Criar Anúncio",  new_product_path(@product), class: "btn btn-primary" %>
+  </div>
+
+  </div>
 </div>
+
 <br>
+
 <p>Meus produtos anunciados</p>
 
 <!-- falta definir os produtos desse usuario especificamente -->
@@ -31,3 +40,4 @@
   <% end %>
   </div>
 </div>
+
