@@ -9,7 +9,7 @@
 
 <div class="btn-style">
     <button><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-    <% if @product.user != current_user %>
+    <% if @product.user != current_user || !@product.sold %>
       <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
     <% end %>
 </div>
