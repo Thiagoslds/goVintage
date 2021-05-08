@@ -13,11 +13,14 @@
     </div>
     <div class="btn-style">
       <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product), class: 'btn-book' %></button>
-        <% if @product.user != current_user || @product.sold == false%>
-          <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
-        <% else %>
-          <button><%= link_to "Editar",  edit_product_path(@product), method: :get, class: 'btn-book' %></button>
-      <% end %>
+        <% if !@product.sold %>
+        
+          <% if @product.user != current_user%>
+            <button><%= link_to "Comprar",  product_sales_path(@product), method: :post, class: 'btn-book' %></button>
+          <% else %>
+            <button><%= link_to "Editar",  edit_product_path(@product), method: :get, class: 'btn-book' %></button>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
