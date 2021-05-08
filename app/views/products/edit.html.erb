@@ -1,5 +1,9 @@
-<h1>Edit View Products</h1>
+<div class="container">
+  <h1>Editar Produtos</h1>
 
-  <% if policy(@product).edit?  %>
-    <%= render 'form', product: @product %>
-  <% end %>
+  <div class="form-main">
+    <% if policy(@product).edit?  %>
+      <%= render 'form', product: @product %>
+    <% end %>
+  </div>
+</div>
