@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query OR description ILIKE :query"
-      @products = Product.where(sql_query, query: "%#{params[:query]}%")
+      @products = policy_scope(Product).where(sql_query, query: "%#{params[:query]}%")
     else
       @products = policy_scope(Product).order(created_at: :desc)
     end
