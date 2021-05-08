@@ -1,18 +1,22 @@
 
-<div class="container">
-    <div class="sale-title">
-        <h1>Compra</h1>
+
+<div class="product-all row">
+  <div class="img-product col-12 col-lg-6">
+    <%= cl_image_tag @sale.product.image.key, height: 400, width: 600, crop: :fill %>
+  </div>
+
+
+
+  <div class="info-product col-12 col-lg-6">
+    <h1><%= @sale.product.name %></h1>
+    <div class="details-product d-flex flex-column">
+      <p id="description"><%= @sale.product.description %></p>
+      <p id="price">R$ <%= @sale.product.price %>0</p>
     </div>
-<!-- nome do produto -->
-<div class="sale-container">   
-        <div class="product-info">
-            <%= cl_image_tag @sale.product.image.key, height: 300, width: 400, crop: :fill %>
-            <p>Produto: <%= @sale.product.name %></p>
-        </div>
-    <!-- vendedor -->
-        <div class="user-info">
-            <p>Vendedor: <%= @sale.product.user.name %></p>
-            <p>Comprador: <%= @sale.user.name %></p>
-        </div>
+    <div class="details-product d-flex flex-column">
+      <p id="description">Vendido por: <%= @sale.product.user.name %></p>
+      <p id="description">Comprador: <%= @sale.user.name %></p>
     </div>
+    
+  </div>
 </div>
