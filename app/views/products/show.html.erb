@@ -13,12 +13,16 @@
     </div>
 
     <div class="btn-style">
+
       <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product) %></button>
-        <% if @product.user != current_user || @product.sold == false%>
+      <% if !@product.sold %>
+        <% if @product.user != current_user%>
           <button class="button"><%= link_to "Comprar",  product_sales_path(@product), method: :post %></button>
         <% else %>
           <button class="button"><%= link_to "Editar",  edit_product_path(@product), method: :get %></button>
-      <% end %>
+        <% end %>
+       <% end %>
+
     </div>
   </div>
 </div>
