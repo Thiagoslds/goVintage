@@ -3,18 +3,21 @@
     <p><%= cl_image_tag @product.image.key, crop: :fit, height: 400, width: 600  %></p>
   </div>
 
+
+
   <div class="info-product col-12 col-lg-6">
     <h1><%= @product.name %></h1>
     <div class="details-product d-flex flex-column">
       <p id="description"><%= @product.description %></p>
-      <p id="price">R$ <%= @product.price %></p>
+      <p id="price">R$ <%= @product.price %>0</p>
     </div>
+    
     <div class="btn-style">
       <button class="button"><%= link_to "Criar Novo Anúncio",  new_product_path(@product) %></button>
-      <% if @product.user != current_user %>
-        <button class="button"><%= link_to "Comprar",  product_sales_path(@product), method: :post %></button>
-      <% else %>
-        <button class="button"><%= link_to "Editar",  edit_product_path(@product), method: :get  %></button>
+        <% if @product.user != current_user || @product.sold == false%>
+          <button class="button"><%= link_to "Comprar",  product_sales_path(@product), method: :post %></button>
+        <% else %>
+          <button class="button"><%= link_to "Editar",  edit_product_path(@product), method: :get %></button>
       <% end %>
     </div>
   </div>
